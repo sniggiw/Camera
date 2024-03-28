@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Suspense } from 'vue'
+import Camera from '@renderer/components/Camera.vue'
+</script>
 
 <template>
-  <main class="">
-    <el-button type="primary">Primary</el-button>
-  </main>
+  <Suspense>
+    <main class="">
+      <Camera />
+    </main>
+  </Suspense>
 </template>
