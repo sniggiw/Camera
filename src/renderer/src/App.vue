@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main class="">main</main>
+  <main class="">
+    <el-button type="primary">Primary</el-button>
+  </main>
 </template>
