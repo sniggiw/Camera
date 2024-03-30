@@ -5,12 +5,14 @@ import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 400,
-    x: 1200,
-    y: 100,
+    width: 300,
+    height: 300,
+    x: 1500,
+    y: 200,
     minWidth: 250,
     minHeight: 250,
+    maxWidth: 500,
+    maxHeight: 500,
     show: false,
     frame: false,
     alwaysOnTop: true,

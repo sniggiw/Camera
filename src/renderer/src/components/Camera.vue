@@ -8,7 +8,7 @@ onMounted(() => {
   const constraints = {
     audio: false,
     video: true
-  }
+  } as MediaStreamConstraints
 
   const video = document.querySelector('video')!
 
@@ -25,4 +25,4 @@ onMounted(() => {
   </main>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>
