@@ -4,6 +4,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 
 import '@renderer/assets/css/tailwind.css'
+import '@renderer/assets/css/global.scss'
 
 const app = createApp(App)
 

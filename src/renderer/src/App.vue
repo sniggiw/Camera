@@ -5,7 +5,7 @@ import Camera from '@renderer/components/Camera.vue'
 
 <template>
   <Suspense>
-    <main class="">
+    <main>
       <Camera />
     </main>
   </Suspense>
