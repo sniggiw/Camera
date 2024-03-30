@@ -20,8 +20,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="">
-    <video src=""></video>
+  <main class="w-screen h-screen flex">
+    <video class="object-cover"></video>
   </main>
 </template>
 
