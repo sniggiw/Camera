@@ -9,6 +9,8 @@ function createWindow(): void {
     height: 400,
     x: 1200,
     y: 100,
+    minWidth: 250,
+    minHeight: 250,
     show: false,
     frame: false,
     alwaysOnTop: true,
@@ -20,7 +22,9 @@ function createWindow(): void {
     }
   })
 
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
+
+  mainWindow.setAspectRatio(1)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
