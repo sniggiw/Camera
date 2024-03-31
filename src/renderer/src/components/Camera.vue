@@ -22,9 +22,10 @@ onMounted(() => {
 <template>
   <main
     class="w-screen h-screen flex"
+    :class="{ 'rounded-full': config.rounded }"
     :style="`border:${config.borderWidth} ${config.borderColor} solid`"
   >
-    <video class="object-cover"></video>
+    <video class="object-cover" :class="{ 'rounded-full': config.rounded }"></video>
   </main>
 </template>
 

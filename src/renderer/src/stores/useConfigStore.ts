@@ -8,7 +8,8 @@ export const useConfigStore = defineStore(
       deviceId: '',
       page: 'camera',
       borderWidth: '2px',
-      borderColor: 'red'
+      borderColor: '#27ae60',
+      rounded: true
     })
 
     return { config }

@@ -32,7 +32,7 @@ const cameras = devices.filter((d) => d.kind.includes('video'))
     <h2
       class="nodrag text-center opacity-70 text-xs text-teal-100 hover:text-yellow-400 cursor-pointer"
     >
-      sniggiw 学习编程
+      @sniggiw
     </h2>
   </main>
 </template>

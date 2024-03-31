@@ -2,7 +2,11 @@
 import Camera from '@renderer/components/Camera.vue'
 import Setting from '@renderer/components/Setting.vue'
 
-import { Setting as SettingIcon, CameraFive as CameraIcon } from '@icon-park/vue-next'
+import {
+  Setting as SettingIcon,
+  CameraFive as CameraIcon,
+  InnerShadowBottomLeft
+} from '@icon-park/vue-next'
 
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 const { config } = useConfigStore()
@@ -16,14 +20,21 @@ const { config } = useConfigStore()
           v-if="config.page == 'camera'"
           theme="outline"
           size="24"
-          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10"
+          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10"
           @click="config.page = 'setting'"
+        />
+        <InnerShadowBottomLeft
+          v-if="config.page == 'camera'"
+          theme="outline"
+          size="24"
+          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 bottom-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10"
+          @click="config.rounded = !config.rounded"
         />
         <CameraIcon
           v-if="config.page == 'setting'"
           theme="outline"
           size="24"
-          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10"
+          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10"
           @click="config.page = 'camera'"
         />
       </section>
