@@ -1,20 +1,25 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+// import { ref } from 'vue'
+import useConfig from '@renderer/composables/useConfig'
+
+const { config, updateConfig } = useConfig()
 
 // 媒体设备（包括摄像头、麦克风等）
 const devices = await navigator.mediaDevices.enumerateDevices()
 const cameras = devices.filter((d) => d.kind.includes('video'))
-const deviceId = ref('')
-
-const onSubmit = () => {
-  console.log('123')
-}
 </script>
 
 <template>
   <main class="bg-[#2c3e50] w-screen h-screen p-5 flex flex-col gap-5 py-10">
+    {{ config }}
     <h1 class="text-gray-50 text-center text-sm opacity-70">参数设置</h1>
-    <el-select v-model="deviceId" placeholder="选择摄像头" clearable filterable class="nodrag">
+    <el-select
+      v-model="config.deviceId"
+      placeholder="选择摄像头"
+      clearable
+      filterable
+      class="nodrag"
+    >
       <el-option
         v-for="item in cameras"
         :key="item.deviceId"
@@ -24,7 +29,7 @@ const onSubmit = () => {
       >
       </el-option>
     </el-select>
-    <el-button class="nodrag" type="success" size="large" @click="onSubmit">保存</el-button>
+    <el-button class="nodrag" type="success" size="large" @click="updateConfig">保存</el-button>
   </main>
 </template>
 

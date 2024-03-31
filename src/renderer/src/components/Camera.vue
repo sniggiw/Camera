@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import useConfig from '@renderer/composables/useConfig'
+
+const { config } = useConfig()
 
 // 媒体设备（包括摄像头、麦克风等）
 // const devices = await navigator.mediaDevices.enumerateDevices()
@@ -7,7 +10,7 @@ import { onMounted } from 'vue'
 onMounted(() => {
   const constraints = {
     audio: false,
-    video: true
+    video: { deviceId: config.value.deviceId }
   } as MediaStreamConstraints
 
   const video = document.querySelector('video')!
@@ -20,7 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="w-screen h-screen flex">
+  <main class="w-screen h-screen flex overflow-hidden">
     <video class="object-cover"></video>
   </main>
 </template>

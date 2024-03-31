@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { Suspense, ref } from 'vue'
 import Camera from '@renderer/components/Camera.vue'
 import Setting from '@renderer/components/Setting.vue'
-
 import { Setting as SettingIcon, CameraFive as CameraIcon } from '@icon-park/vue-next'
-
-const page = ref('camera')
+import useConfig from '@renderer/composables/useConfig'
+const { config } = useConfig()
 </script>
 
 <template>
@@ -13,22 +11,22 @@ const page = ref('camera')
     <main class="relative">
       <section class="">
         <SettingIcon
-          v-if="page == 'camera'"
+          v-if="config.page == 'camera'"
           theme="outline"
           size="24"
           class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10"
-          @click="page = 'setting'"
+          @click="config.page = 'setting'"
         />
         <CameraIcon
-          v-if="page == 'setting'"
+          v-if="config.page == 'setting'"
           theme="outline"
           size="24"
           class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10"
-          @click="page = 'camera'"
+          @click="config.page = 'camera'"
         />
       </section>
       <section>
-        <Camera v-if="page == 'camera'" />
+        <Camera v-if="config.page == 'camera'" />
         <Setting v-else />
       </section>
     </main>
