@@ -7,7 +7,7 @@ const { config } = useConfigStore()
 onMounted(() => {
   const constraints = {
     audio: false,
-    video: { deviceId: config.deviceId }
+    video: { deviceId: config.deviceId } // 传空串的话会使用默认的摄像头
   } as MediaStreamConstraints
 
   const video = document.querySelector('video')!
@@ -20,7 +20,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="w-screen h-screen flex">
+  <main
+    class="w-screen h-screen flex"
+    :style="`border:${config.borderWidth} ${config.borderColor} solid`"
+  >
     <video class="object-cover"></video>
   </main>
 </template>

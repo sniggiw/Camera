@@ -27,6 +27,13 @@ const cameras = devices.filter((d) => d.kind.includes('video'))
       >
       </el-option>
     </el-select>
+    <el-input v-model="config.borderWidth" placeholder="边框宽度" size="large" clearable></el-input>
+    <el-input v-model="config.borderColor" placeholder="边框颜色" size="large" clearable></el-input>
+    <h2
+      class="nodrag text-center opacity-70 text-xs text-teal-100 hover:text-yellow-400 cursor-pointer"
+    >
+      sniggiw 学习编程
+    </h2>
   </main>
 </template>
 
