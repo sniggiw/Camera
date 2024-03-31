@@ -24,7 +24,7 @@ function createWindow(): void {
     }
   })
 
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.setAspectRatio(1)
 

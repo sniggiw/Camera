@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { useConfigStore } from '@renderer/stores/useConfigStore'
 
-// 媒体设备（包括摄像头、麦克风等）
-// const devices = await navigator.mediaDevices.enumerateDevices()
+const { config } = useConfigStore()
 
 onMounted(() => {
   const constraints = {
     audio: false,
-    video: true
+    video: { deviceId: config.deviceId }
   } as MediaStreamConstraints
 
   const video = document.querySelector('video')!
