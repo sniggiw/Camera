@@ -10,24 +10,29 @@ import {
 
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 const { config } = useConfigStore()
+
+const quit = () => {
+  window.api.quit()
+}
 </script>
+
 
 <template>
   <Suspense>
-    <main class="relative">
+    <main class="relative group nodrag" @contextmenu="quit">
       <section>
         <SettingIcon
           v-if="config.page == 'camera'"
           theme="outline"
           size="24"
-          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10"
+          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10 hidden group-hover:block"
           @click="config.page = 'setting'"
         />
         <InnerShadowBottomLeft
           v-if="config.page == 'camera'"
           theme="outline"
           size="24"
-          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 bottom-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10"
+          class="nodrag absolute left-1/2 -translate-x-1/2 mt-3 bottom-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10 hidden group-hover:block"
           @click="config.rounded = !config.rounded"
         />
         <CameraIcon
