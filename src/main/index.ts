@@ -3,6 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import './ipcMain'
+import './drag'
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
@@ -26,8 +27,7 @@ function createWindow(): void {
     }
   })
 
-  mainWindow.webContents.openDevTools()
-
+  if (is.dev) mainWindow.webContents.openDevTools()
   mainWindow.setAspectRatio(1)
 
   mainWindow.on('ready-to-show', () => {
