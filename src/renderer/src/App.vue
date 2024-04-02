@@ -15,6 +15,20 @@ const { config } = useConfigStore()
 const { drag } = useDrag()
 drag.run()
 
+const judgeRound = () => {
+  if (config.rounded) {
+    window.api.setWindowSize({ aspectRatio: 1, width: 300, height: 300 })
+  } else {
+    window.api.setWindowSize({ aspectRatio: 16 / 9, width: 450, height: 253 })
+  }
+}
+judgeRound()
+
+const changeRound = () => {
+  config.rounded = !config.rounded
+  judgeRound()
+}
+
 const quit = () => {
   window.api.quit()
 }
@@ -36,7 +50,7 @@ const quit = () => {
           theme="outline"
           size="24"
           class="absolute left-1/2 -translate-x-1/2 mt-3 bottom-3 text-[#7f8c8d] opacity-80 cursor-pointer z-10 hidden group-hover:block"
-          @click="config.rounded = !config.rounded"
+          @click="changeRound"
         />
         <CameraIcon
           v-if="config.page == 'setting'"
